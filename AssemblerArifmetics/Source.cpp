@@ -64,4 +64,16 @@ int main() {
 		mov pr3,ebx
 	}
 	std::cout << pr3 << '\n';
+	_asm {
+		mov al,x1
+		cbw
+		idiv y1
+		cbw
+		mov pr2,ax
+		// mov byte ptr pr1, ah or
+		mov al,ah
+		cbw
+		mov pr1,ax
+	}
+	std::cout << pr2 << ' ' << pr1 << '\n';
 }
